@@ -7,3 +7,4 @@ numb_list = readDictVal(dict)
 while True:
     name = input('Введите имя: ')
     nameu = name.upper()
+    getNameNumber(dict, nameu)
