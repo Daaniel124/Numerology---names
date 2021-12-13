@@ -18,14 +18,41 @@ def readDictKeys(dic: dict)->list:
         mas.append(v.strip(''))
     return mas
 
-def getNameNumber(dictionary, name:str):
+def getNameNumber(numb: list, lett: list, name: str):
     """
+    Берем введеное имя и раскладываем его в список. Сравниваем буквы из имени с буквами и их значениями из готового списка. Считаем полученные цифры и раскладываем сумму, если нужно
+    :param list numb: Список с цифрами
+    :param list lett: Список с буквами
+    :param str name: Введенное имя
     """
     name_list = list(name)
     print(name_list)
     name_numbers = 0
-
+    n = 0
+    sum = 0
     for i in name_list:
-        name_numbers += dictionary.get(i)
-        
-    print(name_numbers)
+        l = name_list[n]
+        index = lett.index(l)
+        numbers = numb[index]
+        sum += int(numbers)
+        n += 1
+
+    print(sum)
+    sum1 = 0
+    sum2 = 0
+    sum3 = 0
+    k = 0
+
+    if sum < 10:
+        print(f"Число имени - {sum}")
+    elif sum >= 10:
+        sum1 = sum % 10
+        sum2 = sum // 10
+        sum3 = sum1 + sum2
+        if sum3 < 10:
+            print(f"Число вашего имени - {sum3}")
+        elif sum3 >= 10:
+            a = sum3 // 10
+            b = sum3 % 10
+            k = a + b
+            print(f"Число вашего имени - {k}")
